@@ -2,12 +2,30 @@ My possibly right, possibly wrong, answers to questions from
 ##############################################################################
 #"Programming From The Ground Up", an intro to Linux X86 assembly programming#
 ##############################################################################
+Feel free to provide criticism or feedback in the comments.
+
+
 
 Know the Concepts
+
 • Describe the fetch-execute cycle. 
-• What is a register? How would computation be more difficult without registers? 
+
+• What is a register? 
+A register is a specially purposed area of memory that a processor uses to store data it's using for calculations.
+
+How would computation be more difficult without registers? 
+If there were no dedicated registers, some operations would require many more manual instructions.
+We would have to manually pick places in memory to store and manipulate data. This would be doubly inconvenient
+because we'd have to know and reference those memory locations explicitly
+
+with registers, we don't always need to know what memory location some piece of information is going to be stored in, only that it's in a register, and from there we can reference the register itself to conduct calculations.
+
 • How do you represent numbers larger than 255? 
+255 is represented with 1 byte. In order to represent something larger, we'd have to use 2 bytes 
+to represent the number. 
+
 • How big are the registers on the machines we will be using? 
+
 • How does a computer know how to interpret a given byte or set of bytes of 
 memory? 
 
