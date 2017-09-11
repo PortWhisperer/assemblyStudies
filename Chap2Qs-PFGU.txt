@@ -5,11 +5,17 @@ My possibly right, possibly wrong, answers to questions from
 Feel free to provide criticism or feedback in the comments.
 
 
-
+###################
 Know the Concepts
-
+###################
 • Describe the fetch-execute cycle. 
-
+     1) The computer references the program counter to get the address of the next instruction to execute
+     2) The value is fetched and passed to the instruction decoder to decipher what the instruction is
+     3) The CPU uses the data bus to fetch memory locations necessary for the calculation
+     4) The data and decoded instructions are passed to the ALU and the instruction is executed.
+     5) After completion of calculations, and depending on the instruction, the data is put on the data bus and
+        transported to either a main memory location or a register.
+        
 • What is a register? 
      A register is a specially purposed area of memory that a processor uses to store data needed for calculations.
 
@@ -29,7 +35,10 @@ How would computation be more difficult without registers?
 memory? 
     It does not know how to interpret them; it simply executes the instructions the programmer has directed it to.
 
+#################
 Use the Concepts
+#################
+
 • What data would you use in an employee record? How would you lay it out in 
 memory? 
     Name, Social, Phone Number
@@ -60,11 +69,16 @@ has a 0, and the multiplier is 4, what address would you be trying to access?
 • In indexed addressing mode, if the base address is 9123478, the index register 
 has a 20, and the multiplier is 1, what address would you be trying to access? 
     Memory address 9123498
-    
+
+##############
 Going Further
+##############
 • What are the minimum number of addressing modes needed for computation? 
+
 • Why include addressing modes that aren’t strictly needed? 
-    For flexibility in the event they are needed.
+    Added flexibility.
+    
+    
 • Research and then describe how pipelining (or one of the other complicating 
 factors) affects the fetch-execute cycle. 
     
