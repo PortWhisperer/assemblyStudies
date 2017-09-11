@@ -13,14 +13,18 @@ Know the Concepts
 • What is a register? 
 A register is a specially purposed area of memory that a processor uses to store data it's using for calculations.
 
-How would computation be more difficult without registers? 
+How would computation be more difficult without registers?
   1) If there were no dedicated registers, some operations would require many more manual instructions.
-  2) We would have to manually pick places in memory to store and manipulate data. This would be doubly inconvenient
-     because we'd have to know and reference those memory locations explicitly
-  3) It would be hard to track the sort of information and calculations we are dealing with, since unlike registers which
-     have specific purposes, a piece of memory could be in use for a boundless number of reasons.
-
-with registers, we don't always need to know what memory location some piece of information is going to be stored in, only that it's in a register, and from there we can reference the register itself to conduct calculations.
+  
+  2) We would have to manually allocate regions of main memory for storage and manipulation of data. 
+  
+  4) Calculations would have to refer to specific memory addresses for things like indexes and offsets.
+  
+  5) It would be harder to track what calculations we are doing. Unlike registers, which
+     have very specific purposes, a piece of main memory can be used for a boundless number of reasons.
+  
+  6) Doing operations in main memory could be slower: registers are optimized to act as high speed memory.
+  
 
 • How do you represent numbers larger than 255? 
 255 is represented with 1 byte. In order to represent something larger, we could concatenate bytes and use 2 of them
