@@ -11,55 +11,63 @@ Know the Concepts
 • Describe the fetch-execute cycle. 
 
 • What is a register? 
-A register is a specially purposed area of memory that a processor uses to store data it's using for calculations.
+     A register is a specially purposed area of memory that a processor uses to store data needed for calculations.
 
 How would computation be more difficult without registers?
-  1) If there were no dedicated registers, some operations would require many more manual instructions.
-  
-  2) We would have to manually allocate regions of main memory for storage and manipulation of data. 
-  
-  3) Calculations would have to refer to specific memory addresses for things like indexes and offsets.
-  
-  4) It would be harder to track what calculations we are doing. Unlike registers, which
-     have very specific purposes, a piece of main memory can be used for a boundless number of reasons.
-  
-  5) Doing operations in main memory could be slower: registers are optimized to act as high speed memory.
-  
+    It would not necessarily be more difficult, but it would be slower on architectures in which memory allocated
+    to registers is faster than that allocated to main memory.  
 
 • How do you represent numbers larger than 255? 
-255 is represented with 1 byte. In order to represent something larger, we could concatenate bytes and use 2 of them
-to represent numbers greater than 255. 
+    255 is represented with 1 byte. In order to represent something larger, we could concatenate bytes and use 2 of them
+    to represent numbers greater than 255. 
 
 • How big are the registers on the machines we will be using? 
-
+    The registers will be 32 bits in length, or 4 bytes. The typical register length is also known as the architecture's
+    word size
+    
 • How does a computer know how to interpret a given byte or set of bytes of 
 memory? 
-
+    It does not know how to interpret them; it simply executes the instructions the programmer has directed it to.
 
 Use the Concepts
 • What data would you use in an employee record? How would you lay it out in 
 memory? 
+    Name, Social, Phone Number
+    The name could be assigned to a pointer while the social and phone number would be assigned to fixed length fields.
+
 
 • If I had the pointer the the beginning of the employee record above, and wanted 
 to access a particular piece of data inside of it, what addressing mode would I 
 use? 
+    This would use indirect addressing mode
+    
 
 • In base pointer addressing mode, if you have a register holding the value 3122, 
 and an offset of 20, what address would you be trying to access? 
-
+    Memory address 3142
+    
+    
 • In indexed addressing mode, if the base address is 6512, the index register has a 
 5, and the multiplier is 4, what address would you be trying to access? 
-
+    Memory address 6532
+    
+    
 • In indexed addressing mode, if the base address is 123472, the index register 
 has a 0, and the multiplier is 4, what address would you be trying to access? 
-
+    Memory address 123472
+    
+    
 • In indexed addressing mode, if the base address is 9123478, the index register 
 has a 20, and the multiplier is 1, what address would you be trying to access? 
-
+    Memory address 9123498
+    
 Going Further
 • What are the minimum number of addressing modes needed for computation? 
 • Why include addressing modes that aren’t strictly needed? 
+    For flexibility in the event they are needed.
 • Research and then describe how pipelining (or one of the other complicating 
 factors) affects the fetch-execute cycle. 
+    
 • Research and then describe the tradeoffs between fixed-length instructions and 
 variable-length instructions. 
+    
