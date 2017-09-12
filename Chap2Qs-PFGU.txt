@@ -42,7 +42,8 @@ Use the Concepts
 • What data would you use in an employee record? How would you lay it out in 
 memory? 
     Name, Social, Phone Number
-    The name could be assigned to a pointer to allow variable name lengths, while the social and phone number would be assigned to fixed length fields.
+    The name could be assigned by pointer to allow for flexible lengths, while the social and phone number would be assigned to
+    fixed length fields.
 
 
 • If I had the pointer the the beginning of the employee record above, and wanted 
