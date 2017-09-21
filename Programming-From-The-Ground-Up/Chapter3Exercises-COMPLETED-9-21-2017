@@ -1,0 +1,70 @@
+Know the Concepts 
+• What does if mean if a line in the program starts with the ’#’ character? 
+
+	This indicates a comment. This is not interpreted by the machine and is instead used to leave notes about the
+	program.
+
+• What is the difference between an assembly language file and an object code 
+file? 
+
+	The .s assembly language file is source that hasn't yet been assembled (transformed into machine readable
+	instructions). The .o file is an assembled source file.
+
+• What does the linker do? 
+
+	The linker adds additional data to the assembled source that allows the kernel to load and run the assembled
+	file.
+
+• How do you check the result status code of the last program you ran? 
+
+	By typing echo `$?` at the command line
+
+• What is the difference between movl $1, %eax and movl 1, %eax? 
+
+	movl $1 uses immediate addressing mode to assign 1 to the eax register, %eax
+	movl 1, %eax uses direct addressing mode to move the data at memory address 1 to %eax
+
+• Which register holds the system call number? 
+
+	eax holds the system call number. ebx holds the exit status number	
+
+• What are indexes used for? 
+		
+	indexes are used to describe relative locations of data in a memory address or data structure
+
+• Why do indexes usually start at 0? 
+
+	They are defined to start at zero	
+
+
+• If I issued the command movl data_items(,%edi,4), %eax and 
+data_items was address 3634 and %edi held the value 13, what address would 
+you be using to move into %eax? 
+• List the general-purpose registers. 
+• What is the difference between movl and movb? 
+• What is flow control? 
+• What does a conditional jump do? 
+• What things do you have to plan for when writing a program? 
+• Go through every instruction and list what addressing mode is being used for 
+each operand. 
+Use the Concepts 
+• Modify the first program to return the value 3. 
+• Modify the maximum program to find the minimum instead. 
+• Modify the maximum program to use the number 255 to end the list rather than 
+the number 0 
+• Modify the maximum program to use an ending address rather than the number 
+0 to know when to stop. 
+• Modify the maximum program to use a length count rather than the number 0 to 
+know when to stop. 
+
+• What would the instruction movl _start, %eax do? Be specific, based on 
+your knowledge of both addressing modes and the meaning of _start. How 
+would this differ from the instruction movl $_start, %eax? 
+Going Further 
+• Modify the first program to leave off the int instruction line. Assemble, link, 
+and execute the new program. What error message do you get. Why do you 
+think this might be? 
+• So far, we have discussed three approaches to finding the end of the list - using 
+a special number, using the ending address, and using the length count. Which 
+approach do you think is best? Why? Which approach would you use if you 
+knew that the list was sorted? Why? 
