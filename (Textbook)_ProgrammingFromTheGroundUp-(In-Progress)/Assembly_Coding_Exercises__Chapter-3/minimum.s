@@ -28,13 +28,15 @@ movl data_items(,%edi,4), %eax 			# load the first byte of data
 movl %eax, %ebx 				# since this is the first item, %eax is  the smallest 
 
 start_loop: # start loop 
-	cmpl $0, %eax 				# check to see if we’ve hit the end 
-	je loop_exit 
+
 	incl %edi 				# increment counter 
 	movl data_items(,%edi,4), %eax 		# load next value
 	cmpl %ebx, %eax				# compare values 
 	jge start_loop				# jump to loop beginning if eax is bigger 
-						
+
+	cmpl $0, %eax
+	je loop_exit
+				
 	movl %eax, %ebx				# move value to ebx if it's smaller
 	jmp start_loop				# then jump to loop beginning 
 
