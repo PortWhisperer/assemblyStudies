@@ -26,11 +26,12 @@ file?
 
 • Which register holds the system call number? 
 
-	eax holds the system call number. ebx holds the exit status number	
+	eax holds the system call number. 
+	ebx holds the exit status number	
 
 • What are indexes used for? 
 		
-	indexes are used to describe relative locations of data in a memory address or data structure
+	Indexes are used to describe relative locations of data in a memory address or data structure
 
 • Why do indexes usually start at 0? 
 
@@ -40,26 +41,71 @@ file?
 • If I issued the command movl data_items(,%edi,4), %eax and 
 data_items was address 3634 and %edi held the value 13, what address would 
 you be using to move into %eax? 
+	
+	This would load address 3634+13=3647
+
 • List the general-purpose registers. 
+	
+	eax, ebx, ecx, edx, edi, esi	mnemonic: GP-abcdds
+	
+	special purpose registers:
+	ebp,esp,eip,eflags		mnemonic: SPEC-bsif
+
+
 • What is the difference between movl and movb? 
+	
+	movl will move 1 long-sized piece (4 bytes) of data starting from the specified address and index
+	movb will move 1 byte-sized piece of data starting from the specified address and index
+	
+	
+
 • What is flow control? 
+
+	Flow control is the direction of which lines of code are executed in a program, and when
+
+
 • What does a conditional jump do? 
+
+	A conditional jump causes flow to move to the location specified by the jump if a given condition exists
+
 • What things do you have to plan for when writing a program? 
+
+	variables, their data types, flow control decisions, and proper logical structure of solutions
+
 • Go through every instruction and list what addressing mode is being used for 
 each operand. 
+
+	instructions-DAIIBIR: direct > indexed, indirect > base pointer > immediate > register
+
+	movl $0, %edi > immediate, register
+	movl data_items(,%edi,4), %eax > indexed, register
+	movl %eax, %ebx > register,register
+	cmpl $0, %eax > immediate, register
+	incl %edi > register
+	movl data_items(,%edi,4), %eax > indexed, register
+
+
 Use the Concepts 
+
 • Modify the first program to return the value 3. 
+	
+	
+
 • Modify the maximum program to find the minimum instead. 
+
 • Modify the maximum program to use the number 255 to end the list rather than 
 the number 0 
+
 • Modify the maximum program to use an ending address rather than the number 
 0 to know when to stop. 
+
 • Modify the maximum program to use a length count rather than the number 0 to 
 know when to stop. 
 
 • What would the instruction movl _start, %eax do? Be specific, based on 
 your knowledge of both addressing modes and the meaning of _start. How 
 would this differ from the instruction movl $_start, %eax? 
+
 Going Further 
 • Modify the first program to leave off the int instruction line. Assemble, link, 
 and execute the new program. What error message do you get. Why do you 
