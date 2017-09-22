@@ -1,6 +1,6 @@
 #PURPOSE: 	Simple program that exits and returns a 
 #
-#	  	status code back to the Linux kernel 
+#	  	status code back to the Linux kernel. Modified to Return 3 
 # 
 
 

@@ -10,8 +10,8 @@
 # 
 # The following memory locations are used: 
 # 
-# data_items - contains the item data. A 0 is used 
-# to terminate the data 
+# data_items - contains the item data. The value of edi is compared to the length of data_items 
+# and when they are equal, the program is terminated
 #
 
 .section .data 
