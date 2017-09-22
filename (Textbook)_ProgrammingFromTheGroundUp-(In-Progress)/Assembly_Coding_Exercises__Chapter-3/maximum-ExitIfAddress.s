@@ -27,14 +27,14 @@ data_items: 					#These are the data items
 .globl _start 
 _start: 
 movl $data_items, %edi 				# move 0 into the index register 
-movl %edi, %eax 				# load the first byte of data 
+movl (%edi), %eax 				# load the first byte of data
 movl %eax, %ebx 				# since this is the first item, %eax is  the biggest 
 
 start_loop: # start loop 
 	cmp $data_items + 4*13, %edi		# check to see if we’ve hit the end 
 	je loop_exit 
 	add  $4,   %edi				# load next value with a manual addition operation		
-	movl %edi, %eax 
+	movl (%edi), %eax 
 	cmpl %ebx, %eax				# compare values 
 	jle start_loop				# jump to loop beginning if the new 
 						# one isn’t bigger 
