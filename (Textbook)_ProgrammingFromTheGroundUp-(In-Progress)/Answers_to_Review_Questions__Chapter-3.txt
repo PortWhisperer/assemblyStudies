@@ -89,28 +89,52 @@ Use the Concepts
 
 • Modify the first program to return the value 3. 
 	
-	
+	https://github.com/PortWhisperer/assemblyStudies/blob/master/(Textbook)_ProgrammingFromTheGroundUp-(In-Progress)/Assembly_Coding_Exercises__Chapter-3/maximum.s#L30-L38	
 
 • Modify the maximum program to find the minimum instead. 
+
+	https://github.com/PortWhisperer/assemblyStudies/blob/master/(Textbook)_ProgrammingFromTheGroundUp-(In-Progress)/Assembly_Coding_Exercises__Chapter-3/minimum.s#L30-L41
 
 • Modify the maximum program to use the number 255 to end the list rather than 
 the number 0 
 
+	https://github.com/PortWhisperer/assemblyStudies/blob/master/(Textbook)_ProgrammingFromTheGroundUp-(In-Progress)/Assembly_Coding_Exercises__Chapter-3/maximum-ExitIf255.s#L30-L38
+
 • Modify the maximum program to use an ending address rather than the number 
 0 to know when to stop. 
 
+	https://github.com/PortWhisperer/assemblyStudies/blob/master/(Textbook)_ProgrammingFromTheGroundUp-(In-Progress)/Assembly_Coding_Exercises__Chapter-3/maximum-ExitIfAddress.s#L29-L41
+
 • Modify the maximum program to use a length count rather than the number 0 to 
 know when to stop. 
+
+	https://github.com/PortWhisperer/assemblyStudies/blob/master/(Textbook)_ProgrammingFromTheGroundUp-(In-Progress)/Assembly_Coding_Exercises__Chapter-3/maximum-ExitIfLength.s
 
 • What would the instruction movl _start, %eax do? Be specific, based on 
 your knowledge of both addressing modes and the meaning of _start. How 
 would this differ from the instruction movl $_start, %eax? 
 
+This would move the address pointed to by _start into the eax register. The addressing mode is direct addressing because _start is itself a pointer. Register addressing mode is used to pass the value into eax.
+
+The
+
 Going Further 
 • Modify the first program to leave off the int instruction line. Assemble, link, 
 and execute the new program. What error message do you get. Why do you 
 think this might be? 
+
+
 • So far, we have discussed three approaches to finding the end of the list - using 
-a special number, using the ending address, and using the length count. Which 
-approach do you think is best? Why? Which approach would you use if you 
-knew that the list was sorted? Why? 
+a special number, using the ending address, and using the length count. 
+
+Which approach do you think is best? Why? 
+
+	the special number reduces the flexibility of the list somewhat, by removing a possible number and cutting off a range of numbers which might be less than or equal to our "special number". For e.g. if we expected only positives, we could use  -1 as our special number. But the program is explicitly now unable to handle negatives.
+
+	Between the length and the pointer solution, these would depend on context. One situation in which the pointersolution would be much more suitable was described as follows:
+	
+	however, if you have a starting address and the elements are continuous in memory and of consistent size, the end of the list (one element past the last element) will always be  start_address+element_size*number_of_elements and then it doesn't matter what the address of the the start of the list is, as long as the address isn't hard-coded and simply points wrongly somewhere else
+
+
+
+Which approach would you use if you knew that the list was sorted? Why? 
