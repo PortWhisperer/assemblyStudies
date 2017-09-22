@@ -1,5 +1,6 @@
 #PURPOSE: This program finds the maximum number of a 
-# set of data items. 
+# set of data items. The loop conducting the calculations should exit
+# when edi is equal to the final memory address allocated to `data_items`
 # 
 
 #VARIABLES: The registers have the following uses: 
@@ -12,8 +13,8 @@
 # 
 # data_items - contains the item data. 
 #
-# We exit if the current address of data_items matches address of the last 
-# word in the data_items 
+# We exit if the currently referenced address of the pointer %edi matches the last 
+# address of data_items 
 #
 
 .section .data 
@@ -25,8 +26,8 @@ data_items: 					#These are the data items
 
 .globl _start 
 _start: 
-movl $data_items, %edi 					# move 0 into the index register 
-movl %edi, %eax 			# load the first byte of data 
+movl $data_items, %edi 				# move 0 into the index register 
+movl %edi, %eax 				# load the first byte of data 
 movl %eax, %ebx 				# since this is the first item, %eax is  the biggest 
 
 start_loop: # start loop 
