@@ -32,8 +32,8 @@ movl %eax, %ebx 				# since this is the first item, %eax is  the biggest
 start_loop: # start loop 
 	cmp $data_items + 4*13, %edi		# check to see if we’ve hit the end 
 	je loop_exit 
-	movl %edi, %eax 
 	add  $4,   %edi				# load next value with a manual addition operation		
+	movl %edi, %eax 
 	cmpl %ebx, %eax				# compare values 
 	jle start_loop				# jump to loop beginning if the new 
 						# one isn’t bigger 
