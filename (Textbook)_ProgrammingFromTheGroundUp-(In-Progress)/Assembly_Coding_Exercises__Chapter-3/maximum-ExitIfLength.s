@@ -10,7 +10,7 @@
 # 
 # The following memory locations are used: 
 # 
-# data_items - contains the item data. A `0` is used 
+# data_items - contains the item data. A 0 is used 
 # to terminate the data 
 #
 
@@ -28,7 +28,7 @@ movl data_items(,%edi,4), %eax 			# load the first byte of data
 movl %eax, %ebx 				# since this is the first item, %eax is  the biggest 
 
 start_loop: # start loop 
-	cmpl $0, %eax 				# check to see if we’ve hit the end 
+	cmpl $13, %edi 				# check to see if we’ve hit the end 
 	je loop_exit 
 	incl %edi # load next value 
 	movl data_items(,%edi,4), %eax 

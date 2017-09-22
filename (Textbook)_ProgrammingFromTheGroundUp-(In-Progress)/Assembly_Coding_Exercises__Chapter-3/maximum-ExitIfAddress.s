@@ -10,8 +10,10 @@
 # 
 # The following memory locations are used: 
 # 
-# data_items - contains the item data. A `0` is used 
-# to terminate the data 
+# data_items - contains the item data. 
+#
+# We exit if the current address of data_items matches address of the last 
+# word in the data_items 
 #
 
 .section .data 
@@ -28,7 +30,7 @@ movl data_items(,%edi,4), %eax 			# load the first byte of data
 movl %eax, %ebx 				# since this is the first item, %eax is  the biggest 
 
 start_loop: # start loop 
-	cmpl $0, %eax 				# check to see if we’ve hit the end 
+	cmpl data_items(,%edi,4), data_items(,13,4) 				# check to see if we’ve hit the end 
 	je loop_exit 
 	incl %edi # load next value 
 	movl data_items(,%edi,4), %eax 

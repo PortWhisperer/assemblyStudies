@@ -10,14 +10,14 @@
 # 
 # The following memory locations are used: 
 # 
-# data_items - contains the item data. A `0` is used 
+# data_items - contains the item data. the int 255 is used 
 # to terminate the data 
 #
 
 .section .data 
 
 data_items: 					#These are the data items 
-.long 3,67,34,222,45,75,54,34,44,33,22,11,66,0 
+.long 3,67,34,222,45,75,54,34,44,33,22,11,66,255 
 
 .section .text 
 
@@ -28,13 +28,15 @@ movl data_items(,%edi,4), %eax 			# load the first byte of data
 movl %eax, %ebx 				# since this is the first item, %eax is  the biggest 
 
 start_loop: # start loop 
-	cmpl $0, %eax 				# check to see if we’ve hit the end 
-	je loop_exit 
 	incl %edi # load next value 
 	movl data_items(,%edi,4), %eax 
 	cmpl %ebx, %eax				# compare values 
 	jle start_loop				# jump to loop beginning if the new 
 						# one isn’t bigger 
+
+	cmpl $255, %eax 				# check to see if we’ve hit the end 
+	je loop_exit 
+
 	movl %eax, %ebx
 						# move the value as the largest 
 

@@ -1,4 +1,4 @@
-#PURPOSE: This program finds the maximum number of a 
+#PURPOSE: This program finds the minimum number of a 
 # set of data items. 
 # 
 
@@ -34,8 +34,8 @@ start_loop: # start loop
 	cmpl %ebx, %eax				# compare values 
 	jge start_loop				# jump to loop beginning if eax is bigger 
 
-	cmpl $0, %eax
-	je loop_exit
+	cmpl $0, %eax				# if eax isn't bigger, make sure it isn't zero
+	je loop_exit				# exit if it is
 				
 	movl %eax, %ebx				# move value to ebx if it's smaller
 	jmp start_loop				# then jump to loop beginning 
