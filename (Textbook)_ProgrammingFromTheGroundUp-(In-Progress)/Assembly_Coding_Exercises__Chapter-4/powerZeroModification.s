@@ -1,8 +1,8 @@
 .code32
 #PURPOSE: Program to illustrate how functions work 
 #	  This program will compute the value of 
-#	  2^3 + 5^2 
-# 
+#	  2^3 + 5^0 to demonstrate the modifications I've made to enable  
+# 	  the power function to handle parameter arguments of 0
 #Everything in the main program is stored in registers, 
 #so the data section doesn’t have anything. 
 .section .data 
@@ -17,7 +17,7 @@ call power 		#call the function
 addl $8, %esp 		#move the stack pointer back 
 
 pushl %eax 		#save the first answer before calling the next function
-pushl $2 		#push second argument 
+pushl $0 		#push second argument 
 pushl $5 		#push first argument 
 call power 		#call the function 
 addl $8, %esp 		#move the stack pointer back 
@@ -55,7 +55,7 @@ power:
 pushl %ebp 		#save old base pointer 
 movl %esp, %ebp 	#make stack pointer the base pointer 
 subl $4, %esp 		#get room for our local storage 
-movl 8(%ebp), %ebx 	#put first argument in %eax 
+movl 8(%ebp), %ebx 	#put first argument in %ebx 
 movl 12(%ebp), %ecx 	#put second argument in %ecx 
 movl %ebx, -4(%ebp) 	#store current result 
 
@@ -63,12 +63,19 @@ power_loop_start:
 cmpl $1, %ecx 		#if the power is 1, we are done 
 je end_power 
 
+cmpl $0, %ecx		#if the power is 0
+je zero_power		# jump to the zero_power instrucitons
+
 movl -4(%ebp), %eax 	#move the current result into %eax 
 imull %ebx, %eax 	#multiply the current result by the base number
  
 movl %eax, -4(%ebp) 	#store the current result 
 decl %ecx		#decrease the power 
 jmp power_loop_start 	#run for the next power 
+
+zero_power:
+movl $1,-4(%ebp)
+jmp end_power
 
 end_power: 
 movl -4(%ebp), %eax 	#return value goes in %eax 
